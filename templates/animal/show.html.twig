@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AnimalController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+        <p>Nom : {{ animal.name }}</p>
+        <p>Classe : {{ animal.class }}</p>
+        <p>Difficulté : 1-{{ animal.maxDifficulty }}</p>
+        <p>Réserves : </p>
+        <ul>
+        {% for reserve in animal.reserves %}
+                <li><span>{{ reserve.name }}</span></li>
+        {% endfor %}
+        </ul>
+
+</div>
+{% endblock %}
