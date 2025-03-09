@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AnimalController!{% endblock %}
+{% block title %}Animaux{% endblock %}
 
 {% block body %}
 <style>
@@ -10,10 +10,11 @@
 
 <div class="example-wrapper">
     {% for animal in animals %}
-        <p>Animal : {{ animal.name }}</p> {# Assurez-vous que `name` est bien une propriété de `Animal` #}
+        <li><a href="/animal/{{ animal.id }}">{{ animal.name }}</a></li> {# Assurez-vous que `name` est bien une propriété de `Animal` #}
     {% endfor %}
     {% if is_granted('ROLE_ADMIN') %}
-        <a href="/new">Créer</a>
+            <p></p>
+        <a href="/animal/new">Créer</a>
     {% endif %}
 
 </div>

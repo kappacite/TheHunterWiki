@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ReserveController!{% endblock %}
+{% block title %}Liste des réserves{% endblock %}
 
 {% block body %}
 <style>
@@ -9,12 +9,14 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Liste des réserves ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/SymfonyProjects/thehunterwiki/src/Controller/ReserveController.php</code></li>
-        <li>Your template at <code>C:/SymfonyProjects/thehunterwiki/templates/reserve/index.html.twig</code></li>
-    </ul>
+    {% for reserve in reserves %}
+    <li><a href="/reserve/{{ reserve.id }}">{{ reserve.name }}</a></li>
+    {% endfor %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <p></p>
+    <a href="/reserve/new">Créer une réserve</a>
+    {% endif %}
 </div>
 {% endblock %}

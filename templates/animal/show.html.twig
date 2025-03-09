@@ -15,7 +15,7 @@
         <p>Réserves : </p>
         <ul>
         {% for reserve in animal.reserves %}
-                <li><span>{{ reserve.name }}</span></li>
+                <li><a href="/reserve/{{ reserve.id }}">{{ reserve.name }}</a></li>
         {% endfor %}
         </ul>
 
